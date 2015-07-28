@@ -1,16 +1,4 @@
-The Awesome Buttons
+# The Awesome Buttons
+An WordPress plugin to create awesome buttons.
 
-Shortcode or Interface in admin editor?
-
-Customizations:
-- Color
-- Text
-- Corners
-- Size
-- Status Styles (normal, hover and active)
-- Preview is good!
-
-Actions
-- Link
-- Dropdown box
-- Popup box
+Feel free to contribute!
