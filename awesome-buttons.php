@@ -12,10 +12,7 @@
  * Domain Path:       /languages
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+if ( ! defined( 'WPINC' ) ) : die;
 
 class Awesome_Buttons {
 
@@ -26,9 +23,10 @@ class Awesome_Buttons {
 	private $plugin_dir;
 
 	public function __construct( $file ) {
-		$this->plugin_name 	= 'awesome-buttons';
-		$this->plugin_url 	= plugin_dir_url( $file );
-		$this->plugin_dir 	= plugin_dir_path( $file );
+		$this->plugin_name 		= 'awesome-buttons';
+		$this->plugin_version 	= '1.0.0';
+		$this->plugin_url 		= plugin_dir_url( $file );
+		$this->plugin_dir 		= plugin_dir_path( $file );
 
 		add_shortcode( 'button', array( $this, 'add_shortcode' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -41,12 +39,12 @@ class Awesome_Buttons {
 
 	public function add_shortcode( $atts, $content = '' ) {
 		$defaults = array(
-			'title' 		=> __( 'Button Text', $this->plugin_name ),
-			'url' 			=> '#',
-			'size' 			=> 'medium',
-			'color' 		=> '#FFF',
-			'bg-color' 		=> '#000',
-			'border-color' 	=> 'transparent',
+			'title' 			=> __( 'Button Text', $this->plugin_name ),
+			'url' 				=> '',
+			'size' 				=> 'medium',
+			'color' 			=> '#FFF',
+			'bg-color' 			=> '#000',
+			'border-color' 		=> 'transparent',
 		);
 
 		$a = shortcode_atts( $defaults, $atts );
@@ -56,4 +54,4 @@ class Awesome_Buttons {
 	}
 }
 
-$AwsButtons = new Awesome_Buttons( __FILE__ );
+$awesome_buttons = new Awesome_Buttons( __FILE__ );
