@@ -39,7 +39,7 @@ class Awesome_Buttons {
 
 	public function add_shortcode( $atts, $content = '' ) {
 		$defaults = array(
-			'title' 			=> __( 'Button Text', $this->plugin_name ),
+			'title' 			=> __( 'Set me a label', $this->plugin_name ),
 			'url' 				=> '',
 			'size' 				=> 'medium',
 			'color' 			=> '#FFF',
@@ -49,7 +49,14 @@ class Awesome_Buttons {
 
 		$a = shortcode_atts( $defaults, $atts );
 
-		return '<button class="awesome-btn">'. $a['title'] .'</button>';
+		if ( empty( $a['title'] ) && empty( $content ) ) {
+			$button = '<button class="awesome-btn">'. __( 'I\'m a useless button!', $this->plugin_name ) .'</button>';
+			return $button;
+		}
+
+		$button = '<button class="awesome-btn">'. $a['title'] .'</button>';
+
+		return $button;
 
 	}
 }
