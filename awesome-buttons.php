@@ -20,21 +20,21 @@ class Awesome_Buttons {
 	public $plugin_version;
 
 	private $plugin_url;
-	private $plugin_dir;
+	private $plugin_path;
 
 	public function __construct( $file ) {
 		$this->plugin_name 		= 'awesome-buttons';
 		$this->plugin_version 	= '1.0.0';
 		$this->plugin_url 		= plugin_dir_url( $file );
-		$this->plugin_dir 		= plugin_dir_path( $file );
+		$this->plugin_path 		= plugin_dir_path( $file );
 
 		add_shortcode( 'button', array( $this, 'add_shortcode' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'awesome-buttons', $this->plugin_url . 'assets/css/awesome-btn.css', array(), $this->plugin_version, 'all' );
-		wp_enqueue_script( 'awesome-buttons', $this->plugin_url . 'assets/js/awesome-btn.js', array(), $this->plugin_version, 'true' );
+		wp_enqueue_style( 'awesome-buttons', $this->plugin_url . 'assets/css/awesome-buttons.css', array(), $this->plugin_version, 'all' );
+		wp_enqueue_script( 'awesome-buttons', $this->plugin_url . 'assets/js/awesome-buttons.js', array(), $this->plugin_version, 'true' );
 	}
 
 	public function add_shortcode( $atts, $content = '' ) {
